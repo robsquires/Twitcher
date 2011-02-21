@@ -1,0 +1,50 @@
+<li>
+    <h2><?= $this->sighting->getBird()->getFirstname() . " " . $this->sighting->getBird()->getLastname()?></h2>
+    <p>Spotted  
+        <?php
+        $timeNow = new DateTime('now');
+
+        $timeDiff = date_diff($timeNow, $this->sighting->getTimestamp());
+        
+
+        $daysAgo = (integer)$timeDiff->format('%d');
+        $hoursAgo = (integer) $timeDiff->format('%h');
+        $minsAgo = (integer) $timeDiff->format('%i');
+        $secsAgo = (integer) $timeDiff->format('%s');
+        
+        if($daysAgo > 0)
+        {
+            if($daysAgo == 1)
+               $agoString = "yesterday";
+            else
+               $agoString = "$daysAgo days ago";
+        }
+        elseif ($hoursAgo >0)
+        {
+            if($hoursAgo == 1)
+                $agoString = "an hour ago";
+            else
+                $agoString = "$hoursAgo hours ago";
+        }
+        else
+        {
+            if($minsAgo == 0)
+            {
+                    if($secsAgo == 0 || $secsAgo == 1)
+                        $agoString = "Right Now!";
+                    else
+                        $agoString = "just $secsAgo seconds ago!";
+            }
+            else if ($minsAgo==1)
+                $agoString = "just 1 minute ago!";
+            else
+                $agoString = "$minsAgo minutes ago";
+        }
+        echo $agoString;
+        ?>
+        near
+        <a href="">Brighton.</a>
+        Twitched by <a href="/user/view/id"><?= $this->sighting->getUser()->getUsername()?></a>
+
+    </p>
+</li>
