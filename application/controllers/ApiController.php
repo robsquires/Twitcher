@@ -132,6 +132,7 @@ class ApiController extends Zend_Controller_Action
         }
         //process data into a universal array
         $this->reqData = $this->processRequest($this->requestFormat);
+
         //reqData will be null if the request did not match its required format
         if (!$this->reqData)
             throw new Zend_Exception("Invalid Request Format. [$this->requestFormat] expected", self::RESP_ERR_INVALID_REQ_FORMAT, null);
