@@ -81,7 +81,7 @@ class ApiController extends Zend_Controller_Action
         $this->availableRequestFormats['list'] = array(
             self::FORMAT_ATOM => self::FORMAT_FORM,
             self::FORMAT_RSS => self::FORMAT_FORM,
-            self::FORMAT_JSON => self::FORMAT_FORM,
+            self::FORMAT_JSON => self::FORMAT_JSON,
             self::FORMAT_XML => self::FORMAT_FORM,
             self::FORMAT_HTML => self::FORMAT_FORM
         );
@@ -130,10 +130,8 @@ class ApiController extends Zend_Controller_Action
         {
             throw new Zend_Exception("Invalid Response Format.", self::RESP_ERR_INVALID_REQ_FORMAT, null);
         }
-
         //process data into a universal array
         $this->reqData = $this->processRequest($this->requestFormat);
-
         //reqData will be null if the request did not match its required format
         if (!$this->reqData)
             throw new Zend_Exception("Invalid Request Format. [$this->requestFormat] expected", self::RESP_ERR_INVALID_REQ_FORMAT, null);
@@ -143,7 +141,6 @@ class ApiController extends Zend_Controller_Action
         if (!isset($this->reqData['user_key']))
             throw new Zend_Http_Exception('User Key not provided', self::RESP_ERR_NO_USER_KEY, null);
 
-
         //@todo - user not authorised
         $this->user = $this->serviceUser->apiAuthorise($this->reqData);
 
@@ -151,7 +148,6 @@ class ApiController extends Zend_Controller_Action
         {
             throw new Zend_Exception('Not Authorised', self::RESP_ERR_NOT_AUTH, null);
         }
-
         //@todo actual validation on the request_time_stamp
         $requestTime = $this->reqData['request_time_stamp'];
 
@@ -334,7 +330,6 @@ class ApiController extends Zend_Controller_Action
         if (!$listForm->isValid($this->reqData))
 
             throw new \Zend_Exception('Parameters missing or Invalid format', self::RESP_ERR_PARAM_FORMAT, null);
-
 
 
         $data = array();
