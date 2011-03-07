@@ -133,6 +133,7 @@ class ApiController extends Zend_Controller_Action
 
         //process data into a universal array
         $this->reqData = $this->processRequest($this->requestFormat);
+var_dump($this->reqData);
 
         //reqData will be null if the request did not match its required format
         if (!$this->reqData)
