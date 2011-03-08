@@ -246,7 +246,9 @@ class ApiController extends Zend_Controller_Action
         $addSightingForm->addElement('text',
                 'address',
                 array());
-
+        
+        $addSightingForm->isValid($this->reqData);
+        var_dump($addSightingForm->getMessages());exit;
         
         if (!$addSightingForm->isValid($this->reqData))
         {
