@@ -36,7 +36,12 @@ class UserService extends AbstractService
 
 
    public function apiAuthorise($data)
-   {return true;
+   {
+   
+   	  return true;
+   	  /**
+   	  * @todo - correct auth mechanism
+   	  **/
       $this->setupRepos();
       $userCheck =  $this->repoUser->findOneBy(array('userKey'=>$data['user_key']));
 
