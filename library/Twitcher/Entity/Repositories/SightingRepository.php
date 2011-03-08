@@ -16,11 +16,6 @@ class SightingRepository extends EntityRepository {
 
     public function saveSighting(Entity\Sighting $sighting, $data) {
 
-
-        if (isset($data['user']))
-            $sighting->setUser($data['user']);
-
-
         if (isset($data['user']))
             $sighting->setUser($data['user']);
         if (isset($data['latitude']))
