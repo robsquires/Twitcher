@@ -63,7 +63,7 @@ class SightingService extends AbstractService
 
        //check the iphone_sighting_id given
        $data['device_sighting_id'] = $data['sighting_id'];
-
+echo "in";exit;
 
        //user and bird Entites added to data
        $data['user'] = $user;

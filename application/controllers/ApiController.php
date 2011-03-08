@@ -247,16 +247,12 @@ class ApiController extends Zend_Controller_Action
                 'address',
                 array());
         
-        $addSightingForm->isValid($this->reqData);
-        var_dump($addSightingForm->getMessages());exit;
+
         
         if (!$addSightingForm->isValid($this->reqData))
         {
             throw new Zend_Exception('Parameter missing or invalid format', self::RESP_ERR_PARAM_FORMAT, null);
             $this->view->errors = $addSightingForm->getErrors();
-        }else
-        {
-            echo 'not valid';exit;
         }
 
         $addCount = $this->serviceSighting->addSighting($this->user, $addSightingForm->getValues());
