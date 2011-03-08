@@ -207,6 +207,7 @@ class ApiController extends Zend_Controller_Action
 
     public function addSightingAction()
     {
+        echo "in add sighting";exit;
         $addSightingForm = new Zend_Form();
 
         $stringQS = new Zend_Validate_Alnum(true);
