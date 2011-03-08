@@ -74,9 +74,9 @@ class SightingService extends AbstractService
 
        $addCount = 0;
        try
-       {
+       {       echo "in";exit;
             $this->repoSighting->saveSighting($newSighting,$data);
-            echo "in";exit;
+     
             $this->getEntityManager()->flush();
             $addCount++;
        }
