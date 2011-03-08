@@ -38,7 +38,7 @@ class UserService extends AbstractService
    public function apiAuthorise($data)
    {
    
-   	  return true;
+   	 
    	  /**
    	  * @todo - correct auth mechanism
    	  **/
