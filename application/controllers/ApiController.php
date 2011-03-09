@@ -338,6 +338,7 @@ class ApiController extends Zend_Controller_Action
 
         $data = array();
 
+        var_dump($listForm->getValues());
         foreach($this->serviceSighting->listSighting($listForm->getValues()) as $sighting)
         {
             $data[] = array(
