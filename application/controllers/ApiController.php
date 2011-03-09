@@ -335,7 +335,7 @@ class ApiController extends Zend_Controller_Action
 
             throw new \Zend_Exception('Parameters missing or Invalid format', self::RESP_ERR_PARAM_FORMAT, null);
 
-
+var_dump($reqData);
         $data = array();
 
         var_dump($listForm->getValues());
