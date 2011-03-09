@@ -94,7 +94,7 @@ class SightingService extends AbstractService
    public function listSighting($terms)
    {
        $this->setupRepos();
-
+       
        return $this->repoSighting->getWhere($terms);
    }
 
