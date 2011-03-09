@@ -66,6 +66,7 @@ DQL;
     
     public function getWhere($terms, $orderBy = null, $orderDirection = null, $offset = null, $limit = null )
     {
+        var_dump($terms);
         $qb = $this->getEntityManager()->createQueryBuilder();
 
         //BASE QUERY
