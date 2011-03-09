@@ -48,6 +48,7 @@ class ApiController extends Zend_Controller_Action
      */
     protected $availableRequestFormats = array();
     protected $requestType = array();
+    protected $requestFormat;
     protected $reqData = null;
 
     public function init()
@@ -332,11 +333,16 @@ class ApiController extends Zend_Controller_Action
         );
 
         
-        if (!$listForm->isValid($this->reqData))
+        if($this->requestFormat == self::FORMAT_JSON)
+                $formData = $this->reqData['search_terms'];
+        else
+                $formData = $this->reqData;
+        
+        if (!$listForm->isValid($formData))
 
             throw new \Zend_Exception('Parameters missing or Invalid format', self::RESP_ERR_PARAM_FORMAT, null);
 
-        var_dump($this->reqData);       
+             
         $data = array();
 
         var_dump($listForm->getValues());
