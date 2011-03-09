@@ -331,11 +331,12 @@ class ApiController extends Zend_Controller_Action
                 array('validators' => array('Int'))
         );
 
+        
         if (!$listForm->isValid($this->reqData))
 
             throw new \Zend_Exception('Parameters missing or Invalid format', self::RESP_ERR_PARAM_FORMAT, null);
 
-var_dump($reqData);
+        var_dump($this->reqData);       
         $data = array();
 
         var_dump($listForm->getValues());
