@@ -193,6 +193,7 @@ DQL;
 
 
         $query = $qb->getQuery();
+        echo $query->getDQL();
         
         if($offset)
             $query->setFirstResult($offset);
